@@ -4,16 +4,17 @@ AR			= ar rc
 RM			= rm -rf
 
 LIBFT_PATH		=	./libft
+SOURCE_PATH		=	./source
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
 SERVER = server
 SERVER_B = server_b
 CLIENT = client
 CLIENT_B = client_b
-SRC-S = server.c
-SRC-C = client.c
-SRC_B-S = server_bonus.c
-SRC_B-C = client_bonus.c
+SRC-S = $(SOURCE_PATH)/server.c
+SRC-C = $(SOURCE_PATH)/client.c
+SRC_B-S = $(SOURCE_PATH)/server_bonus.c
+SRC_B-C = $(SOURCE_PATH)/client_bonus.c
 
 OBJ-S = $(SRC-S:.c=.o)
 OBJ-C = $(SRC-C:.c=.o)

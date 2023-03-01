@@ -6,11 +6,11 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:28:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/02/22 15:45:14 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:39:10 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../header/minitalk.h"
 
 void	ft_send_char(int pid, char c)
 {
@@ -38,7 +38,7 @@ void	ft_send(int pid, char *str)
 		ft_send_char(pid, str[i]);
 		i++;
 	}
-	ft_send_char(pid, '\0');
+	ft_send_char(pid, ' ');
 }
 
 int	main(int argc, char **argv)
@@ -47,16 +47,17 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		ft_putstr_fd("Error: Wrong number of arguments (2 needed)\n", 2);
+		ft_putstr_fd("Erro:Numero de Argumentos Inv\
+alido (2 argumentos apenas)\n Exemplo: '12345' \"olá, tudo bem?\"\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
-		ft_putstr_fd("Error: Invalid PID\n", 2);
+		ft_putstr_fd("Erro:PID Invalido, tente novamente.\n", 2);
 	else
 	{
 		ft_send(pid, argv[2]);
-		ft_putstr_fd("Message sent!\n", 1);
+		ft_putstr_fd("\tMensagem Enviada\n", 1);
 	}
 	return (0);
 }

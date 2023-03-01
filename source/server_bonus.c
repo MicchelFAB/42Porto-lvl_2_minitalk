@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:25:16 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/02/22 15:27:27 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:22:54 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../header/minitalk_bonus.h"
 
-void	ft_handler(int sig)
+void	ft_handler(int sig, siginfo_t *sig_info, void *context)
 {
 	static char	c;
 	static int	i;
@@ -22,6 +22,8 @@ void	ft_handler(int sig)
 	i++;
 	if (i == 8)
 	{
+		if (c == '\0')
+			kill(sig_info->si_pid, SIGUSR1);
 		ft_putchar_fd(c, 1);
 		c = 0;
 		i = 0;
@@ -32,7 +34,8 @@ int	main(void)
 {
 	struct sigaction	sa;
 
-	sa.sa_handler = &ft_handler;
+	sa.sa_sigaction = &ft_handler;
+	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	ft_putstr_fd("Server PID: ", 1);
