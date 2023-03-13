@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:25:16 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/01 16:22:54 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:47:52 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_handler(int sig, siginfo_t *sig_info, void *context)
 	i++;
 	if (i == 8)
 	{
-		if (c == '\0')
+		if (c == '\n')
 			kill(sig_info->si_pid, SIGUSR1);
 		ft_putchar_fd(c, 1);
 		c = 0;

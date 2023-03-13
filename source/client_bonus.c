@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:28:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/01 16:29:32 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:48:03 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	ft_send(int pid, char *str)
 		ft_send_char(pid, str[i]);
 		i++;
 	}
-	ft_send_char(pid, ' ');
-	ft_send_char(pid, '\0');
+	ft_send_char(pid, '\n');
+//	ft_send_char(pid, '\0');
 }
 
 void	server_signal(int sig)
