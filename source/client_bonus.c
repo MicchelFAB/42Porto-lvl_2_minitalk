@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:28:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/13 10:48:03 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/04/12 09:34:08 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_send(int pid, char *str)
 		i++;
 	}
 	ft_send_char(pid, '\n');
-//	ft_send_char(pid, '\0');
 }
 
 void	server_signal(int sig)
