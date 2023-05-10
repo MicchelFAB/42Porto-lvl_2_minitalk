@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:28:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/04/12 09:34:08 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:32:27 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_send(int pid, char *str)
 		ft_send_char(pid, str[i]);
 		i++;
 	}
-	ft_send_char(pid, '\n');
+	ft_send_char(pid, '\0');
 }
 
 void	server_signal(int sig)
@@ -52,6 +52,7 @@ int	main(int argc, char **argv)
 	int					pid;
 	struct sigaction	sa;
 
+	ft_memset(&sa, 0, sizeof(sa));
 	sa.sa_handler = &server_signal;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);

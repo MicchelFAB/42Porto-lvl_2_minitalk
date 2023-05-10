@@ -47,6 +47,7 @@ fclean: clean
 
 re:			fclean all
 
-bonus: $(N_BONUS)
+bonus: $(N_BONUS) 
+		@$(RM) $(SERVER) $(CLIENT)
 
 .PHONY:		all clean fclean re libft bonus

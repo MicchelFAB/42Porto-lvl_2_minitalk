@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:28:42 by mamaral-          #+#    #+#             */
-/*   Updated: 2023/03/01 16:39:10 by mamaral-         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:28:16 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_send(int pid, char *str)
 		ft_send_char(pid, str[i]);
 		i++;
 	}
-	ft_send_char(pid, ' ');
 }
 
 int	main(int argc, char **argv)
